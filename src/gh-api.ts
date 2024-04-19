@@ -7,6 +7,7 @@ export interface GithubRelease {
   name: string
   id: number
   tag_name: String
+  target_commitish: string
   prerelease: boolean
   assets: GhAsset[]
   tarball_url: string
