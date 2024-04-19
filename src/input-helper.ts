@@ -54,6 +54,6 @@ export function getInputs(): IReleaseDownloadSettings {
       githubWorkspacePath,
       core.getInput("out-file-path") || "."
     ),
-    downloadAssets: core.getBooleanInput("download") || true
+    downloadAssets: core.getBooleanInput("downloadAssets") || true
   }
 }
