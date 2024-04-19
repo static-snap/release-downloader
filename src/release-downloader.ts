@@ -97,6 +97,7 @@ export class ReleaseDownloader {
     }
 
     const responseBody = await response.readBody()
+
     core.info(`Response: ${responseBody.toString()}`)
 
     let release: GithubRelease

@@ -218,6 +218,7 @@ class ReleaseDownloader {
             // Set the output variables for use by other actions
             core.setOutput("tag_name", ghRelease.tag_name);
             core.setOutput("release_name", ghRelease.name);
+            core.setOutput("target_commitish", ghRelease.target_commitish);
             core.setOutput("downloaded_files", result);
             return result;
         });
@@ -242,10 +243,11 @@ class ReleaseDownloader {
                 throw err;
             }
             const responseBody = yield response.readBody();
+            core.info(`Response: ${responseBody.toString()}`);
             let release;
             if (!preRelease) {
                 release = JSON.parse(responseBody.toString());
-                core.info(`Found latest release version: ${release.tag_name}`);
+                core.info(`Found latest release version a: ${release.tag_name}`);
             }
             else {
                 const allReleases = JSON.parse(responseBody.toString());
