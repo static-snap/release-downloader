@@ -60,7 +60,9 @@ outputs:
   release_name:
     description: "The release name / title"
   downloaded_files:
-    description: "The array of downloaded files, useful when using wildcard '*' to download multiple files."      
+    description: "The array of downloaded files, useful when using wildcard '*' to download multiple files."
+  target_commitish:
+    description: "The commitish value that the release was created from"     
 
 runs:
   using: "node20"
