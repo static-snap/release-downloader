@@ -50,6 +50,10 @@ inputs:
     description: "The release id to download the file from"
     default: ""
     required: false
+  downloadAssets:
+    description: "A flag to download assets from the release"
+    default: "true"
+    required: false
 outputs:
   tag_name:
     description: "The github tag used to download the release"
