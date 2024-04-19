@@ -67,7 +67,8 @@ function getInputs() {
         tarBall: core.getBooleanInput("tarBall"),
         zipBall: core.getBooleanInput("zipBall"),
         extractAssets: core.getBooleanInput("extract"),
-        outFilePath: path.resolve(githubWorkspacePath, core.getInput("out-file-path") || ".")
+        outFilePath: path.resolve(githubWorkspacePath, core.getInput("out-file-path") || "."),
+        downloadAssets: core.getBooleanInput("download") || true
     };
 }
 exports.getInputs = getInputs;
@@ -213,8 +214,11 @@ class ReleaseDownloader {
             else {
                 throw new Error("Config error: Please input a valid tag or release ID, or specify `latest`");
             }
-            const resolvedAssets = this.resolveAssets(ghRelease, downloadSettings);
-            const result = yield this.downloadReleaseAssets(resolvedAssets, downloadSettings.outFilePath);
+            let result = [];
+            if (downloadSettings.downloadAssets) {
+                const resolvedAssets = this.resolveAssets(ghRelease, downloadSettings);
+                result = yield this.downloadReleaseAssets(resolvedAssets, downloadSettings.outFilePath);
+            }
             // Set the output variables for use by other actions
             core.setOutput("tag_name", ghRelease.tag_name);
             core.setOutput("release_name", ghRelease.name);

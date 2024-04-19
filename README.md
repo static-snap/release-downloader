@@ -8,7 +8,7 @@ A Github Action to download assets from github release. It can download specifie
 
 ```yaml
 
-- uses: robinraju/release-downloader@v1.10
+- uses: static-snap/release-downloader@main
   with: 
     # The source repository path.
     # Expected format {owner}/{repo}
@@ -60,6 +60,11 @@ A Github Action to download assets from github release. It can download specifie
     # Default: "https://api.github.com"
     # Use http(s)://[hostname]/api/v3 to access the API for GitHub Enterprise Server
     github-api-url: ""
+
+   # Auto download assets from release
+   # If set to false, only the release metadata will be returned
+   # Default: true
+   downloadAssets: true
 ```
 
 #### Output variables

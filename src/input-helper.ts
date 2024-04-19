@@ -53,6 +53,7 @@ export function getInputs(): IReleaseDownloadSettings {
     outFilePath: path.resolve(
       githubWorkspacePath,
       core.getInput("out-file-path") || "."
-    )
+    ),
+    downloadAssets: core.getBooleanInput("download") || true
   }
 }

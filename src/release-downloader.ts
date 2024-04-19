@@ -45,15 +45,19 @@ export class ReleaseDownloader {
       )
     }
 
-    const resolvedAssets: DownloadMetaData[] = this.resolveAssets(
-      ghRelease,
-      downloadSettings
-    )
+    let result: string[] = []
 
-    const result = await this.downloadReleaseAssets(
-      resolvedAssets,
-      downloadSettings.outFilePath
-    )
+    if (downloadSettings.downloadAssets) {
+      const resolvedAssets: DownloadMetaData[] = this.resolveAssets(
+        ghRelease,
+        downloadSettings
+      )
+
+      result = await this.downloadReleaseAssets(
+        resolvedAssets,
+        downloadSettings.outFilePath
+      )
+    }
 
     // Set the output variables for use by other actions
     core.setOutput("tag_name", ghRelease.tag_name)

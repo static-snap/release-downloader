@@ -48,4 +48,10 @@ export interface IReleaseDownloadSettings {
    * Extract downloaded files to outFilePath
    */
   extractAssets: boolean
+
+  /**
+   * Auto download assets from release
+   * If set to false, only the release metadata will be returned
+   */
+  downloadAssets: boolean
 }
