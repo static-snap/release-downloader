@@ -68,7 +68,7 @@ function getInputs() {
         zipBall: core.getBooleanInput("zipBall"),
         extractAssets: core.getBooleanInput("extract"),
         outFilePath: path.resolve(githubWorkspacePath, core.getInput("out-file-path") || "."),
-        downloadAssets: core.getBooleanInput("download") || true
+        downloadAssets: core.getBooleanInput("downloadAssets") || true
     };
 }
 exports.getInputs = getInputs;
