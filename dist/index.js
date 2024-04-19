@@ -218,6 +218,7 @@ class ReleaseDownloader {
             // Set the output variables for use by other actions
             core.setOutput("tag_name", ghRelease.tag_name);
             core.setOutput("release_name", ghRelease.name);
+            core.setOutput("target_commitish", ghRelease.target_commitish);
             core.setOutput("downloaded_files", result);
             return result;
         });

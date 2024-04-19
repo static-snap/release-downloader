@@ -83,6 +83,11 @@ A Github Action to download assets from github release. It can download specifie
 >
 > `${{ fromJson(steps.<step-id>.outputs.downloaded_files)[0] }}`
 
+- `target_commitish` it outputs commitish.
+> It can be used as follows
+>
+> ${{steps.<step-id>.outputs.target_commitish}}
+
 ## Scenarios
 
 ### Download asset from the latest release in the current repository
